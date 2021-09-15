@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -18,11 +17,11 @@ class UserSeeder extends Seeder
     public function run()
     {
         $faker = Factory::create('tr_TR');
-        for ($i = 0; $i < 99; $i++){
+        for ($i = 0; $i <= 199; $i++) {
             User::query()->create([
-                'name' => $faker->city,
+                'name' => $faker->name,
                 'email' => $faker->email,
-                'password' => Hash::make('123456'),
+                'password' => Hash::make($faker->password)
             ]);
         }
     }

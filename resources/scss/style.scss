@@ -1,0 +1,105 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.nav-top {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #f1f0e8;
+}
+
+.navbar {
+    color: #f1f0e8;
+    background-color: $primary;
+
+    ul {
+        li {
+            a {
+                color: #f1f0e8;
+            }
+        }
+    }
+}
+
+.hero {
+    width: 100%;
+    background-image: url("/images/hero-bg.jpeg");
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .hero-content {
+        position: absolute;
+        z-index: 1;
+
+    }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.75;
+    width: 100%;
+    height: 100%;
+}
+
+.job-info {
+    color: white;
+    border: 1px solid;
+    padding: 23px;
+    background-color: $primary;
+
+    i {
+        background-color: #ecece9;
+        padding: 5px;
+        color: #253346;
+    }
+}
+
+.job-title:hover {
+    color: #692b41 !important;
+}
+
+.new-job {
+    a {
+        padding: 6px;
+        background-color: #692b41;
+    }
+
+}
+
+#inputFile {
+    display: none;
+}
+
+#addIcon {
+    position: absolute;
+    font-size: 35px;
+    right: 35px;
+    top: 20px;
+    display: none;
+
+}
+
+.profile-image {
+    position: relative;
+}
+
+.profile-image:hover {
+    #addIcon {
+        display: block;
+    }
+}
+
+#saveBtn {
+    display: none;
+}
+
+.bid-edit-icon {
+    color: $danger !important;
+}

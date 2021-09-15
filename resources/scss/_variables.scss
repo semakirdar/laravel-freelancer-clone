@@ -1,0 +1,9 @@
+$primary:#253347;
+$danger:#692b41;
+$custom-colors: (
+    "primary": $primary,
+    "danger":$danger
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
