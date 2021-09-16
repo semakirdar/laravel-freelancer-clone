@@ -15,10 +15,10 @@
                     <div class="job-info d-flex justify-content-between align-items-center my-3">
                         <div>
                             <p>Yayın tarihi: {{ $job->created_at }}</p>
-                            <p>Yaklaşık bütçe: 100$</p>
+                            <p>Yaklaşık bütçe: {{ $job->budget }}</p>
                         </div>
                         <div>
-                            <p>Teslim süresi:</p>
+                            <p>Teslim süresi: {{ $job->delivery_time }}</p>
                             <p>
                                 <i class="fab fa-facebook-f"></i>
                                 <i class="fab fa-instagram"></i>
@@ -37,7 +37,6 @@
                         </div>
                     @endforeach
                     @auth()
-
                         <div class="row justify-content-center align-items-center">
                             <div class="col-sm-12 col-md-12 col-lg-7">
                                 <div class="card mt-4">
@@ -63,7 +62,6 @@
                                                 <th>Description</th>
                                                 <th>Estimated day</th>
                                                 <th>Action</th>
-
                                             </tr>
                                             @if(count($job->bids) > 0)
                                                 @foreach($job->bids as $bid)
@@ -83,12 +81,27 @@
                                                         <td>{{ $bid->description }}</td>
                                                         <td>
                                                             @if(auth()->user()->id == $bid->user->id)
-                                                                <a href="{{ route('job.bid.edit', ['id' => $bid->id]) }}">
-                                                                    <i  class="fas fa-pencil-alt text-dark bid-edit-icon"></i>
-                                                                </a>
+                                                                <div>
+
+                                                                    <div class="d-inline-block float-start">
+                                                                        <a class="text-decoration-none"
+                                                                           href="{{ route('job.bid.edit', ['id' => $bid->id]) }}">
+                                                                            <i class="fas fa-pencil-alt text-dark bid-edit-icon me-2"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="d-inline-block float-start">
+                                                                        <form method="post"
+                                                                              action="{{ route('job.bid.delete', ['id' => $bid->id]) }}">
+                                                                            @csrf
+                                                                            <button class="bg-white border-0"><i
+                                                                                    class="fas fa-trash-alt text-dark bid-edit-icon"></i>
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
                                                             @endif
                                                         </td>
-
                                                     </tr>
                                                 @endforeach
                                             @else

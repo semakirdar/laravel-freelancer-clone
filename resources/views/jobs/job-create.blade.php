@@ -20,10 +20,23 @@
                         <input class="form-control" name="body">
                     </div>
                     <div class="mb-3">
+                        <label>Budget</label>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" name="budget">
+                    </div>
+                    <div class="mb-3">
+                        <label>Delivery Time</label>
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" name="delivery_time">
+                    </div>
+
+                    <div class="mb-3">
                         <label>Category</label>
                     </div>
                     <div class="mb-3">
-                        <select name="category_id">
+                        <select class="form-control" name="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}"> {{ $category->name}} </option>
                             @endforeach

@@ -7,15 +7,15 @@
             <div class="col-sm-12 col-md-12 col-lg-8 m-auto text-center align-items-center justify-content-center">
                 <div class="profile-image d-inline-block mb-3">
                     @auth
-                    @if(auth()->user()->id == $profile->user->id)
-                        <form method="post" enctype="multipart/form-data"
-                              action="{{ route('profile.store', ['id' => $profile->user->id]) }}" id="avatar-form">
-                            @csrf
-                            <input type="file" id="inputFile" name="image">
-                            <i class="fas fa-camera" id="addIcon"></i>
-                            <button type="submit" id="saveBtn"></button>
-                        </form>
-                    @endif
+                        @if(auth()->user()->id == $profile->user->id)
+                            <form method="post" enctype="multipart/form-data"
+                                  action="{{ route('profile.store', ['id' => $profile->user->id]) }}" id="avatar-form">
+                                @csrf
+                                <input type="file" id="inputFile" name="image">
+                                <i class="fas fa-camera" id="addIcon"></i>
+                                <button type="submit" id="saveBtn"></button>
+                            </form>
+                        @endif
                     @endauth
                     @if(!empty($profile->user->getFirstMediaUrl()))
                         <img width="200" height="200" class="rounded-circle"
@@ -35,13 +35,16 @@
                     Kayıt Tarihi: {{ $profile->user->created_at }}
                 </div>
                 @auth
-                @if(auth()->user()->id == $profile->user->id)
-                    <div class="new-job mb-3">
-                        <a class="text-decoration-none text-white " href="{{ route('job.create') }}"><i
-                                class="far fa-plus-square me-2"></i>New Job Create</a>
-                    </div>
-                @endif
+                    @if(auth()->user()->id == $profile->user->id)
+                        <div class="new-job mb-3">
+                            <a class="text-decoration-none text-white " href="{{ route('job.create') }}"><i
+                                    class="far fa-plus-square me-2"></i>New Job Create</a>
+                        </div>
+                    @endif
                 @endauth
+
+
+
 
                 <div>
                     @foreach($jobs as $job)
@@ -55,10 +58,10 @@
                                     <div class="job-info d-flex justify-content-between align-items-center my-3">
                                         <div>
                                             <p>Yayın tarihi: {{ $job->created_at }}</p>
-                                            <p>Yaklaşık bütçe: 100$</p>
+                                            <p>Yaklaşık bütçe:{{ $job->budget }}</p>
                                         </div>
                                         <div>
-                                            <p>Teslim süresi:</p>
+                                            <p>Teslim süresi:{{ $job->delivery_time }}</p>
                                             <p>
                                                 <i class="fab fa-facebook-f"></i>
                                                 <i class="fab fa-instagram"></i>

@@ -16,6 +16,8 @@ class Job extends Model
         'body',
         'category_id',
         'user_id',
+        'budget',
+        'delivery_time'
     ];
 
     public function category()

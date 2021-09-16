@@ -12,7 +12,8 @@ class ProfileController extends Controller
     public function profile($id)
     {
 
-        $jobs = Job::query()->where('user_id', $id)->get();
+        $jobs = Job::query()
+            ->where('user_id', $id)->orderBy('id', 'DESC')->get();
         $profile = Profile::query()->with('user')->where('user_id', $id)->firstOrFail();
 
         return view('profile', [
@@ -24,7 +25,8 @@ class ProfileController extends Controller
 
     public function store($id)
     {
-        $profile = Profile::query()->with('user')->where('user_id', $id)->firstOrFail();
+        $profile = Profile::query()->with('user')
+            ->where('user_id', $id)->firstOrFail();
 
         $medias = $profile->user->getMedia();
         if(count($medias) > 0){

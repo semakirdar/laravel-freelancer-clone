@@ -33,6 +33,8 @@ Route::get('/bid/create/{id}', [BidController::class, 'create'])->name('job.bid.
 Route::post('/bid/store', [BidController::class, 'store'])->name('job.bid.store');
 Route::get('/bid/edit/{id}', [BidController::class, 'edit'])->name('job.bid.edit');
 Route::post('/bid/update/{id}', [BidController::class, 'update'])->name('job.bid.update');
+Route::post('/bid/delete/{id}', [BidController::class, 'delete'])->name('job.bid.delete');
+
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');

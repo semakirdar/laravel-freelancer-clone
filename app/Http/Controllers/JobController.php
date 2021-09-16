@@ -37,6 +37,8 @@ class JobController extends Controller
         $job = Job::query()->create([
             'title' => $request->title,
             'body' => $request->body,
+            'budget' => $request->budget,
+            'delivery_time' =>$request->delivery_time,
             'user_id' => auth()->user()->id,
             'category_id' => $request->category_id
         ]);
