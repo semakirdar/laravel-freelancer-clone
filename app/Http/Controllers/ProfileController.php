@@ -29,8 +29,8 @@ class ProfileController extends Controller
             ->where('user_id', $id)->firstOrFail();
 
         $medias = $profile->user->getMedia();
-        if(count($medias) > 0){
-            foreach ($medias as $media){
+        if (count($medias) > 0) {
+            foreach ($medias as $media) {
                 $media->delete();
             }
         }
@@ -40,4 +40,6 @@ class ProfileController extends Controller
         return redirect()->back();
 
     }
+
+
 }

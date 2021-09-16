@@ -2,8 +2,9 @@
 @section('content')
 
 
+
     <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center align-items-center login">
             <div class="col-sm-12 col-md-12 col-lg-6 mt-5">
                 <form method="post" action="{{ route('login.store') }}">
                     @csrf

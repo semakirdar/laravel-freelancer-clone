@@ -103,3 +103,34 @@ body {
 .bid-edit-icon {
     color: $danger !important;
 }
+
+.profile-card {
+    position: relative;
+}
+
+.profile-edit {
+    padding: 3px;
+    color: white !important;
+    background-color: $danger;
+    position: absolute;
+    top: 10px;
+    left: 48px;
+}
+
+.profile {
+
+}
+
+.footer {
+    padding: 30px;
+    width: 100%;
+    background-color: #f1f0e8;
+
+    .footer-item {
+
+    }
+}
+
+.login{
+    height: 100vh;
+}

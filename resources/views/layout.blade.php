@@ -46,6 +46,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('job.create') }}">New Job</a>
+                    </li>
                 </ul>
             </div>
             <div class="float-end">
@@ -67,12 +70,68 @@
 </div>
 
 
-<footer></footer>
+<footer>
+    <div class="footer">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="footer-item">
+                    <img style="height: 80px" class="img-fluid text-muted"
+                         src="{{asset('images/freelance-logo.png')}}">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="footer-item">
+
+                    <ul class="mb-0">
+                        <h6><strong>KATEGORİLER</strong></h6>
+                        @foreach($categories as $category)
+
+                            <li class="list-unstyled">
+                                <a class="text-decoration-none text-dark" href="#">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="footer-item">
+                    <ul class="mb-0">
+                        <h6><strong>GİZLİLİK VE KULLANIM</strong></h6>
+                        <li class="list-unstyled">Kullanıcı Sözleşmesi</li>
+                        <li class="list-unstyled">Gizlilik Politikası</li>
+                        <li class="list-unstyled">Güvenli Ticaret</li>
+                        <li class="list-unstyled">Yardım</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+                <div class="footer-item">
+                    <ul class="mb-0">
+                        <h6><strong>SOSYAL MEDYA</strong></h6>
+                        <li class="list-unstyled"><i class="fas fa-phone-volume me-2"></i>0850 885 00 22</li>
+                        <li class="list-unstyled">
+                            <i class="fab fa-facebook-f me-3"></i>
+                            <i class="fab fa-instagram me-3"></i>
+                            <i class="fab fa-twitter me-3"></i>
+                            <i class="fab fa-linkedin"></i>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
 <script src="{{ asset('js/app.js') }}"></script>
 
 @if ($errors->any())
     <script>
-    toastr.error( '{{ implode(' ', $errors->all()) }}');
+        toastr.error('{{ implode(' ', $errors->all()) }}');
     </script>
 @endif
 

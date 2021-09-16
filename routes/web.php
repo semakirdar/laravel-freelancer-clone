@@ -21,12 +21,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['auth'])->group(function (){
+    Route::get('/job/create', [JobController::class, 'create'])->name('job.create');
+});
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/detail/{id}', [JobController::class, 'show'])->name('detail');
-Route::get('/job/create', [JobController::class, 'create'])->name('job.create');
+
 Route::post('/job/store', [JobController::class, 'store'])->name('job.store');
+Route::get('/job/edit/{id}', [JobController::class, 'edit'])->name('job.edit');
+Route::post('/job/update/{id}', [JobController::class, 'update'])->name('job.update');
 
 Route::get('/bid/index', [BidController::class, 'index'])->name('job.bid.index');
 Route::get('/bid/create/{id}', [BidController::class, 'create'])->name('job.bid.create');
@@ -47,5 +52,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::get('/profile/{id}', [ProfileController::class, 'profile'])->name('profile');
 Route::post('/store/{id}', [ProfileController::class, 'store'])->name('profile.store');
+
+
+
 
 
